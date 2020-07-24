@@ -1,15 +1,15 @@
-const request = require("request");
+const request = require('request');
 
 const geocode = (address, callback) => {
   const url =
-    "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+    'https://api.mapbox.com/geocoding/v5/mapbox.places/' +
     encodeURIComponent(address) +
-    ".json?access_token=pk.eyJ1IjoiYWtyaXRoaSIsImEiOiJja2N1ZWd5YXYweWowMnNvNGQzNzZ4eGl1In0.zqe1yhSAt2BgzSmhE3K8SQ&limit=1";
+    '.json?access_token=pk.eyJ1IjoiYWtyaXRoaSIsImEiOiJja2N1ZWd5YXYweWowMnNvNGQzNzZ4eGl1In0.zqe1yhSAt2BgzSmhE3K8SQ&limit=1';
   request({ url, json: true }, (error, { body }) => {
     if (error) {
-      callback("Low level error / Network Prob", undefined);
+      callback('Low level error / Network Prob', undefined);
     } else if (body.features.length === 0) {
-      callback("Undefined", undefined);
+      callback('Undefined', undefined);
     } else {
       callback(undefined, {
         latitude: body.features[0].center[1],

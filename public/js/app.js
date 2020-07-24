@@ -1,18 +1,18 @@
-console.log("file is loaded");
+console.log('file is loaded');
 
-const weatherAddress = document.querySelector("form");
-const search = document.querySelector("input");
-const messageOne = document.querySelector("#message1");
-const messageTwo = document.querySelector("#message2");
+const weatherAddress = document.querySelector('form');
+const search = document.querySelector('input');
+const messageOne = document.querySelector('#message1');
+const messageTwo = document.querySelector('#message2');
 
-weatherAddress.addEventListener("submit", (e) => {
+weatherAddress.addEventListener('submit', (e) => {
   e.preventDefault();
   const location = search.value;
-  messageOne.textContent = "Loading.....";
-  messageTwo.textContent = "";
-  fetch("/weather?address=" + location).then((res) => {
+  messageOne.textContent = 'Loading.....';
+  messageTwo.textContent = '';
+  fetch('/weather?address=' + location).then((res) => {
     res.json().then((data) => {
-      messageOne.textContent = "";
+      messageOne.textContent = '';
 
       if (data.error) {
         messageTwo.textContent = data.error;
